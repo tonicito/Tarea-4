@@ -1,0 +1,54 @@
+<?php
+ class camion{
+    private  $Ejes= 0;
+    private  $Toneladas =0;
+    private  $PagoPorEje=5;
+    private  $PagoPorTonelada=10;
+    private  $pagoTotal;
+    private  $peso=0;
+    public function _construct($Ejes,$toneladas,$pagoporeje,$pagoportonelada) {
+        $this->ejes = $ejes;
+        $this->Tonelada =$Toneladas;
+        $this->pagoporeje =$pagoporeje;
+        $this->pagoportonelada =$pagoportonelada;
+        $camion = new camion(01);
+        $camion = new camion(02);
+        $camion = new camion (03);
+     }  
+ }
+class cabinadepeaje{
+    
+    
+    public function Eje() {
+       return  $this->Ejes;
+    }
+    public function Toneladas() {
+        return $this->Toneladas;
+    }
+    public function pagoporejes() {
+       return $this->pagoporejes;
+    }
+
+    public function getPagoPorTonelada() {
+        return $this->PagoPorTonelada;
+    }  
+     
+     private $cobropeaje = [];  
+      
+    public function cobroPorTonelada() {
+        $this->PagoPorTonelada = $PagoPorTonelada;
+    
+        return $PagoTotal;
+    }
+    public function PagoTotal( )  
+    {
+        $this->PagoTotal = $PagoTotal;
+    
+    }
+    public function calcularpeaje(camion $camion)
+   
+         $peaje = ($camion->eje + $tonelaje); {
+     
+    echo"EL PEAJE:". $peaje.<br>;
+    
+       
