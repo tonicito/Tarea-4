@@ -1,0 +1,67 @@
+<?php
+
+interface CapacidadLimite{
+    public function limitePasajeros();
+}
+
+
+abstract class VehiculoMotorizado {
+    public $fabricante ="";
+    public $modelo ="";
+    public $anyo = 0;
+    public $kilometraje = 0;
+
+  
+    public function __construct($fabricante,$modelo,$anyo,$kilometraje)
+    {
+        $this->fabricante = $fabricante;
+        $this->modelo = $modelo;
+        $this->anyo = $anyo;
+        $this->kilometraje = $kilometraje;
+    }
+}
+
+
+class Motocicleta extends VehiculoMotorizado {
+    private $usos = "";
+    public function __construct($fabricante,$modelo,$anyo,$kilometraje,$usos)
+    {
+        $this->usos = $usos;
+        $parent__construct($fabricante,$modelo,$anyo,$kilometraje);
+  
+       }
+}
+
+    
+class Camion extends VehiculoMotorizado implements CapacidadLimite{
+    private $remolques = 0;
+
+    public function __construct($fabricante,$modelo,$anyo,$kilometraje,$remolques)
+    {
+        $this->remolques = $remolques;
+        $parent::__construct($fabricante,$modelo,$anyo,$kilometraje);
+    }
+
+    public function limitePasajeros()
+    {
+        return; 
+    }
+}
+
+
+function instanciarVehiculo($tipo,$fabricante,$modelo,$anyo,$kilometraje,$propiedadExtra){
+    try {
+        $clase = ucfirst(strtolower($tipo));
+        return new $clase($fabricante,$modelo,$anyo,$kilometraje,$propiedadExtra);
+    }
+       catch(Exception $ex) {
+       
+    }
+}
+
+
+$vehiculo1 = instanciarVehiculo("automovil","Hyunda","YARI",2012, 2010, "normal");
+$vehiculo2 = instanciarVehiculo("camion","HYUNDAI", "Semi", 2015, 20000,3 );
+$vehiculo3 = instanciarVehiculo("motocicleta","COBRA","YARA", 2012, 2018 ,"turista");
+
+?>
