@@ -1,54 +1,95 @@
 <?php
- class camion{
-    private  $Ejes= 0;
-    private  $Toneladas =0;
-    private  $PagoPorEje=5;
-    private  $PagoPorTonelada=10;
-    private  $pagoTotal;
-    private  $peso=0;
-    public function _construct($Ejes,$toneladas,$pagoporeje,$pagoportonelada) {
-        $this->ejes = $ejes;
-        $this->Tonelada =$Toneladas;
-        $this->pagoporeje =$pagoporeje;
-        $this->pagoportonelada =$pagoportonelada;
-        $camion = new camion(01);
-        $camion = new camion(02);
-        $camion = new camion (03);
-     }  
- }
-class cabinadepeaje{
-    
-    
-    public function Eje() {
-       return  $this->Ejes;
-    }
-    public function Toneladas() {
-        return $this->Toneladas;
-    }
-    public function pagoporejes() {
-       return $this->pagoporejes;
-    }
 
-    public function getPagoPorTonelada() {
-        return $this->PagoPorTonelada;
-    }  
+class camion{
      
-     private $cobropeaje = [];  
-      
-    public function cobroPorTonelada() {
-        $this->PagoPorTonelada = $PagoPorTonelada;
-    
-        return $PagoTotal;
-    }
-    public function PagoTotal( )  
-    {
-        $this->PagoTotal = $PagoTotal;
-    
-    }
-    public function calcularpeaje(camion $camion)
    
-         $peaje = ($camion->eje + $tonelaje); {
+    private $eje=5;
+    private $peso=10;
+    private $total_pago=0;
+    public $total_camiones=0;
+    public function __construct($eje, $peso, $total_pago ,$total_camiones){
+        $this->eje = $eje;
+        $this->peso = $peso;
+        $this->total_pago = $total_pago;
+		
+		$this->total_camion=$total_camion;
+    }
+      public function geteje(){
+     return $this->eje;
+    }
      
-    echo"EL PEAJE:". $peaje.<br>;
     
-       
+     public function getpeso(){
+
+        return $this->peso;
+    }
+     
+    public function setpeso($peso){
+
+        $this->peso = $peso;
+    }
+    
+      public function gettotal_pago(){
+        return $this->total_pago;	
+      }
+    
+      public function gettotal_camiones(){
+
+        return $this->total_camiones;
+    }
+     
+    public function settotal_camio($total_camion){
+
+        $this->total_camion = $total_camion;
+  
+    }
+    public function mostrarInfo(){
+         
+        $info = "<h1>Información del camion:</h1>";
+        $info.= "ejes: ".$this->getejes();
+        $info.= "<br> peso: ".$this->getpeso();
+        $info.= "<br> total_pago: ".$this->gettotal_pago();
+		$info.="<br>total_camion: ".$this->gettotal_camion()."<br>"."<br>";
+        return $info;
+	} 
+	
+    public function camion(&$total_pago){
+        if($total_pago>3){
+			
+			echo "total de pago ";
+        }else
+			echo "total de camione"; 	
+	
+        
+        
+        }
+	public function camion(&$total_camion){
+		if($total_camion>3 and $total_camion<=3){
+			
+			 echo "total ";
+		}elseif($total_camion>30 and $total_camion<=50)
+            
+            echo " pago";
+		else{
+            echo "camione";
+            
+        }    
+      }
+
+    }        	          
+
+class cabinaDepeaje extends camion{ 
+    
+    
+}  
+
+	$camion = new camion("ejes"+"peso =total_pago",5+10,0);
+ echo $total_pago->mostrarInfo();
+
+ $camion->ejepeso($camion->total_pago); 
+  
+ $camion->camion1camion2camion3($camion->total_camion); 
+
+
+
+?>
