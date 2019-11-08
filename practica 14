@@ -1,0 +1,44 @@
+<?php
+class alumno {
+ public $nombre="";
+ private $dni="";
+ public $IP=0;
+ public $IIP=0;
+ public function __construct($nombre, $dni, $IP,$IIP){
+ $this->nombre=$nombre;
+ $this->dni=$dni;
+ $this->IP=$IP;
+     $this->IIP=$IIP;} 
+}
+class Curso
+{
+ private $alumnos=[];
+ public function agregar(Alumno $alumno){
+     $this->alumnos[]= $alumno;
+ 
+ } public function promedio(){
+ foreach($this->alumnos as $alumno) {
+ $promedio = ($alumno->IP + $alumno->IIP) / 2;
+     echo "<br>La nota promedia de ".$alumno->nombre." es: ".$promedio."<br>";}}
+ 
+}$curso = new Curso();
+$alumno1 = new alumno('Antony Rivas','001<br>',95,95); 
+
+$alumno2 = new Alumno('Dora Robleto','002<br>',100,100); 
+
+$alumno3 = new Alumno('Francisco  Lao','003<br>',80,90);
+
+$alumno4 = new Alumno('Fabiola Lago','004<br>',70,95);
+
+$alumno5 = new Alumno('Elena Mayorga','005<dr>',98,70);
+
+$alumno6 = new Alumno('Petrona  ToruÃ±o','006<br>',100,90);
+$curso->agregar($alumno1);
+$curso->agregar($alumno2);
+$curso->agregar($alumno3);
+$curso->agregar($alumno4);
+$curso->agregar($alumno5);
+$curso->agregar($alumno6);
+$curso->promedio();
+  
+?>
